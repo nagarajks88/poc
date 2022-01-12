@@ -11,6 +11,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.nsk.poc.data.model.Row
 import com.nsk.poc.databinding.LayoutFactsAdapterBinding
 
+/**
+ * Adapter class for Facts recyclerview. Uses DiffUtil to comapare two lists.
+ */
 class FactsAdapter : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
 
     private val callback = object : DiffUtil.ItemCallback<Row>() {

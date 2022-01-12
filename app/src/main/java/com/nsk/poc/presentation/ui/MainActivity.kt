@@ -12,6 +12,10 @@ import com.nsk.poc.presentation.viewmodel.FactsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**
+ * Activity to show list of facts about Canada
+ */
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Fetching facts from API
+     */
     private fun loadFacts() {
         factsViewModel.getFacts()
         factsViewModel.liveData.observe(this, {
@@ -62,9 +69,18 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * Sets the [title] to  ToolBar title
+     *
+     * @param title - String
+     */
     private fun setToolBarTitle(title: String) {
         setTitle(title)
     }
+
+    /**
+     * initialize recyclerview
+     */
 
     private fun initRecyclerView() {
 
@@ -74,10 +90,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Shows the progress bar
+     */
     private fun showProgressBar() {
         binding.progressBar.visibility = View.VISIBLE
     }
 
+    /**
+     * hides the progress bar
+     */
     private fun hideProgressBar() {
         binding.progressBar.visibility = View.INVISIBLE
     }

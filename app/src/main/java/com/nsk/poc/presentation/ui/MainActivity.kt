@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nsk.poc.data.util.Resource
 import com.nsk.poc.databinding.ActivityMainBinding
@@ -27,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initRecyclerView()
         loadFacts()
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.swipeRefreshLayout.isRefreshing = false
+            loadFacts()
+        }
 
     }
 

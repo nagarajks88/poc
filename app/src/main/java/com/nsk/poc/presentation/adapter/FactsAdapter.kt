@@ -1,6 +1,7 @@
 package com.nsk.poc.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -46,10 +47,11 @@ class FactsAdapter : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
             binding.titleTv.text = row?.title
             if(row?.imageHref?.isNotEmpty() == true) {
                 Glide.with(binding.root.context)
-                    .load(row?.imageHref)
+                    .load(row.imageHref)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(binding.imageView)
-            }
+            } else
+                binding.imageView.visibility = View.GONE
         }
     }
 }
